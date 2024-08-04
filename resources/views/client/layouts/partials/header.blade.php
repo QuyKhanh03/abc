@@ -42,13 +42,13 @@
     <div class="row">
         <div class="col-lg-3 col-md-3">
             <div class="header__logo">
-                <a href="./index.html"><img src="/clients/img/logo.png" alt=""></a>
+                <a href="{{ route('home') }}"><img src="/clients/img/logo.png" alt=""></a>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <nav class="header__menu mobile-menu">
                 <ul>
-                    <li class="active"><a href="./index.html">Home</a></li>
+                    <li class="active"><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('client.products') }}">Shop</a>
                         <ul class="dropdown">
                             <li>
@@ -76,8 +76,8 @@
             <div class="header__nav__option">
                 <a href="#" class="search-switch"><img src="/clients/img/icon/search.png" alt=""></a>
                 <a href="#"><img src="/clients/img/icon/heart.png" alt=""></a>
-                <a href="#"><img src="/clients/img/icon/cart.png" alt=""> <span>0</span></a>
-                <div class="price">$0.00</div>
+                <a href="{{ route('client.cart') }}"><img src="/clients/img/icon/cart.png" alt=""> <span>0</span></a>
+
             </div>
         </div>
     </div>

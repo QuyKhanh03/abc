@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product__details__breadcrumb">
-                        <a href="./index.html">Home</a>
-                        <a href="./shop.html">Shop</a>
+                        <a href="{{ route('home') }}">Home</a>
+                        <a href="{{ route('client.products') }}">Shop</a>
                         <span>Product Details</span>
                     </div>
                 </div>
@@ -18,25 +18,25 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
-                                <div class="product__thumb__pic set-bg" data-setbg="/clients/img/shop-details/thumb-1.png" style="background-image: url(&quot;/clients/img/shop-details/thumb-1.png&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{ asset('storage/' .$product->images) }}" style="background-image: url(&quot;/clients/img/shop-details/thumb-1.png&quot;);">
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
-                                <div class="product__thumb__pic set-bg" data-setbg="/clients/img/shop-details/thumb-2.png" style="background-image: url(&quot;/clients/img/shop-details/thumb-2.png&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{ asset('storage/' .$product->images) }}" style="background-image: url(&quot;/clients/img/shop-details/thumb-2.png&quot;);">
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
-                                <div class="product__thumb__pic set-bg" data-setbg="/clients/img/shop-details/thumb-3.png" style="background-image: url(&quot;/clients/img/shop-details/thumb-3.png&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{ asset('storage/' .$product->images) }}" style="background-image: url(&quot;/clients/img/shop-details/thumb-3.png&quot;);">
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
-                                <div class="product__thumb__pic set-bg" data-setbg="/clients/img/shop-details/thumb-4.png" style="background-image: url(&quot;/clients/img/shop-details/thumb-4.png&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{ asset('storage/' .$product->images) }}" style="background-image: url(&quot;/clients/img/shop-details/thumb-4.png&quot;);">
                                     <i class="fa fa-play"></i>
                                 </div>
                             </a>
@@ -47,22 +47,22 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="/clients/img/shop-details/product-big-2.png" alt="">
+                                <img src="{{ asset('storage/' .$product->images) }}" alt="" width="100%">
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="/clients/img/shop-details/product-big-3.png" alt="">
+                                <img src="{{ asset('storage/' .$product->images) }}" alt="" width="100%">
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="/clients/img/shop-details/product-big.png" alt="">
+                                <img src="{{ asset('storage/' .$product->images) }}" alt="" width="100%">
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-4" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="/clients/img/shop-details/product-big-4.png" alt="">
+                                <img src="{{ asset('storage/' .$product->images) }}" alt="" width="100%">
                                 <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&amp;list=RD8PJ3_p7VqHw&amp;start_radio=1" class="video-popup"><i class="fa fa-play"></i></a>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="product__details__text">
-                        <h4>Hooded thermal anorak</h4>
+                        <h4>{{ $product->pro_name }}</h4>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -85,45 +85,47 @@
                             <i class="fa fa-star-o"></i>
                             <span> - 5 Reviews</span>
                         </div>
-                        <h3>$270.00 <span>70.00</span></h3>
+                        <h3>
+                            {{ number_format($product->price) }} VND
+                        </h3>
                         <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
                             cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
                         with placket.</p>
-                        <div class="product__details__option">
-                            <div class="product__details__option__size">
-                                <span>Size:</span>
-                                <label for="xxl">xxl
-                                    <input type="radio" id="xxl">
-                                </label>
-                                <label class="active" for="xl">xl
-                                    <input type="radio" id="xl">
-                                </label>
-                                <label for="l">l
-                                    <input type="radio" id="l">
-                                </label>
-                                <label for="sm">s
-                                    <input type="radio" id="sm">
-                                </label>
-                            </div>
-                            <div class="product__details__option__color">
-                                <span>Color:</span>
-                                <label class="c-1" for="sp-1">
-                                    <input type="radio" id="sp-1">
-                                </label>
-                                <label class="c-2" for="sp-2">
-                                    <input type="radio" id="sp-2">
-                                </label>
-                                <label class="c-3" for="sp-3">
-                                    <input type="radio" id="sp-3">
-                                </label>
-                                <label class="c-4" for="sp-4">
-                                    <input type="radio" id="sp-4">
-                                </label>
-                                <label class="c-9" for="sp-9">
-                                    <input type="radio" id="sp-9">
-                                </label>
-                            </div>
-                        </div>
+{{--                        <div class="product__details__option">--}}
+{{--                            <div class="product__details__option__size">--}}
+{{--                                <span>Size:</span>--}}
+{{--                                <label for="xxl">xxl--}}
+{{--                                    <input type="radio" id="xxl">--}}
+{{--                                </label>--}}
+{{--                                <label class="active" for="xl">xl--}}
+{{--                                    <input type="radio" id="xl">--}}
+{{--                                </label>--}}
+{{--                                <label for="l">l--}}
+{{--                                    <input type="radio" id="l">--}}
+{{--                                </label>--}}
+{{--                                <label for="sm">s--}}
+{{--                                    <input type="radio" id="sm">--}}
+{{--                                </label>--}}
+{{--                            </div>--}}
+{{--                            <div class="product__details__option__color">--}}
+{{--                                <span>Color:</span>--}}
+{{--                                <label class="c-1" for="sp-1">--}}
+{{--                                    <input type="radio" id="sp-1">--}}
+{{--                                </label>--}}
+{{--                                <label class="c-2" for="sp-2">--}}
+{{--                                    <input type="radio" id="sp-2">--}}
+{{--                                </label>--}}
+{{--                                <label class="c-3" for="sp-3">--}}
+{{--                                    <input type="radio" id="sp-3">--}}
+{{--                                </label>--}}
+{{--                                <label class="c-4" for="sp-4">--}}
+{{--                                    <input type="radio" id="sp-4">--}}
+{{--                                </label>--}}
+{{--                                <label class="c-9" for="sp-9">--}}
+{{--                                    <input type="radio" id="sp-9">--}}
+{{--                                </label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="product__details__cart__option">
                             <div class="quantity">
                                 <div class="pro-qty"><span class="fa fa-angle-up dec qtybtn"></span>

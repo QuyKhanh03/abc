@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\Admin\DashBoardController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController as ClientProductController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,27 @@ Route::get('/', function () {
 
 Route::get('category/{id}', [CategoryController::class, 'show'])->name('client.category');
 Route::get('products', [ClientProductController::class, 'index'])->name('client.products');
+Route::get('product/{id}', [ClientProductController::class, 'show'])->name('client.product');
+
+
+//cart
+
+Route::get('cart', function () {
+    return view('client.shop-cart');
+})->name('client.cart');
+
+//add to cart ajax
+Route::post('cart',[CartController::class,'store'])->name('client.cart.add');
+
+//remove from cart ajax
+Route::post('cart-remove',[CartController::class,'destroy'])->name('client.remove.cart');
+
+//removeAll
+Route::get('cart/removeAll',[CartController::class,'removeAll'])->name('client.cart.removeAll');
+
+//update cart
+Route::post('cart/update',[CartController::class,'update'])->name('client.update.cart');
+
 
 
 
